@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HEIC Convert</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <div id="dropzone" class="dropzone">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+        <path d="M21 15l-5-5L5 21"></path>
+      </svg>
+      <p class="dz-title">Drop HEIC photos here</p>
+      <p class="dz-sub">or</p>
+      <button id="browse" class="secondary" type="button">Choose files…</button>
+    </div>
+
+    <section class="options">
+      <div class="option-row">
+        <label for="format">Format</label>
+        <select id="format">
+          <option value="jpeg" selected>JPEG</option>
+          <option value="png">PNG</option>
+        </select>
+      </div>
+      <div class="option-row" id="quality-row">
+        <label for="quality">Quality <span id="quality-val">85</span></label>
+        <input type="range" id="quality" min="10" max="100" step="5" value="85" />
+      </div>
+      <div class="option-row" id="ctxmenu-row" hidden>
+        <label>Right-click menu in Explorer</label>
+        <button id="ctxmenu-btn" class="secondary" type="button">…</button>
+      </div>
+      <div class="option-row">
+        <label>Save to</label>
+        <div class="outdir">
+          <label class="radio"><input type="radio" name="outmode" value="same" checked /> Same folder</label>
+          <label class="radio"><input type="radio" name="outmode" value="custom" /> <span id="outdir-label">Choose folder…</span></label>
+        </div>
+      </div>
+    </section>
+
+    <section id="filelist" class="filelist" hidden></section>
+
+    <footer>
+      <span id="summary" class="summary"></span>
+      <div class="footer-buttons">
+        <button id="clear" class="secondary" type="button" hidden>Clear</button>
+        <button id="convert" type="button" disabled>Convert</button>
+      </div>
+    </footer>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
